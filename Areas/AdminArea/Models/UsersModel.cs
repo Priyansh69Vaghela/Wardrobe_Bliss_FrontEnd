@@ -1,7 +1,7 @@
 ﻿using static System.Net.Mime.MediaTypeNames;
 using System;
 
-namespace Wardrobe_Bliss.Models
+namespace Wardrobe_Bliss.Areas.AdminArea.Models
 {
     public class UsersModel
     {

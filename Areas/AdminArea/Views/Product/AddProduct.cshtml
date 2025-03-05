@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+@using Wardrobe_Bliss.Areas.AdminArea.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ProductModel
+<main id="main" class="main">
+
+    <div class="pagetitle">
+    </div><!-- End Page Title -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Insert Product Details</h5>
+            <!-- General Form Elements -->
+            <form asp-action="ApiSave" method="post">
+                <div class="row mb-3">
+                    <div class="col-sm-10">
+                        <input type="hidden" class="form-control" asp-for="product_id">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Product Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="name">
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Product Price</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="price">
+                        <span asp-validation-for="price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Stock Qty.</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="stock_quantity">
+                        <span asp-validation-for="stock_quantity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="description">
+                        <span asp-validation-for="description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Category ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="category_id">
+                        <span asp-validation-for="category_id" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Image url</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="image_url" value="">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Add Product</label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form><!-- End General Form Elements -->
+
+        </div>
+    </div>
+
+</main><!-- End #main -->
+

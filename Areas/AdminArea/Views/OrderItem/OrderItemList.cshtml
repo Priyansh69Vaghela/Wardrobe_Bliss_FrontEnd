@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}@using Wardrobe_Bliss.Areas.AdminArea.Models
+@model IEnumerable<OrderItemsModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Datatables</h5>
+                        <a asp-controller="Product" asp-action="ApiProductInsert">
+                            <button type="submit" class="btn btn-primary mb-3">Add Product</button>
+                        </a>
+                        <!-- Table with stripped rows -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>order_item_id</th>
+                                    <th>order_id</th>
+                                    <th>product_id</th>
+                                    <th>quantity</th>
+                                    <th>price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model)
+                                {
+                                    <tr>
+                                        <td>@order.order_item_id</td>
+                                        <td>@order.order_id</td>
+                                        <td>@order.product_id</td>
+                                        <td>@order.quantity</td>
+                                        <td>@order.price</td>
+                                        <td class="d-flex justify-content-start">
+                                            <a asp-controller="Product" asp-action="ApiProductInsert" asp-route-id="@order.order_item_id">
+                                                <button type="button" class="btn btn-warning me-2">Edit</button>
+                                            </a>
+                                            <a asp-controller="OrderItem" asp-action="ApiOrderItemDelete" asp-route-id="@order.order_item_id"><button type="button" class="btn btn-danger" onclick="return confirmDelete();">Delete</button></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete?');
+    }
+</script>
